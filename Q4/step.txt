@@ -1,0 +1,10 @@
+1. create square.py program using python
+2. make Dockerfile using square.py directry
+3 build it from sudo docker build -d image name and path 
+4. sudo docker ps
+5. run the imgae sudo docker rum -itd -- name create_name images_name sh
+6.we enter in container and run the python code python3 Square.py
+and see the  outupt
+7. push image to docker hub
+ docker push square:s0
+ 

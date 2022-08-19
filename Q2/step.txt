@@ -1,0 +1,40 @@
+Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+Choose Launch Instance.
+Step 1: Choose an Amazon Machine Image (AMI), find an Amazon Ubuntu in ubuntu server 22.04 Lts at the top of the list and choose Select.
+
+Step 2: Choose an Instance Type, choose Next: Configure Instance Details.
+
+step 3: Select the check box for the key pair that you created, and then choose Launch Instances.
+
+For Network, choose the entry for the same VPC that you noted when you created your EFS file system 
+and set as default
+
+step 4: set default setting for configure storage, Adavnce details 
+ next : click on  Launch instance
+
+Name your instance and choose Next: Configure Security Group.
+
+In Step 6: Configure Security Group, set Assign a security group to Select an existing security group. Choose the default security group to make sure that it can access your EFS file system.
+
+Choose Review and Launch.
+
+Choose Launch.
+
+step 5: go to security -> security group-> edit inbound rules -> add rule -> custom tcp -> port range: 1883
+
+step 6: 
+open instance -> connect ->ssh client
+ sudo chmod 400 diot.pem	
+
+ run instances using ssh comand
+ ssh -i "diot.pem" ubuntu@ec2-65-2-79-180.ap-south-1.compute.amazonaws.com
+
+now  access our AWS EC2 instance which w have created..
+
+ sudo apt install mosquitto
+
+now on our linux machine run foloowing commands
+	-- mosquitto_sub -t test -h 65.2.79.180 -p 1883 -d
+	-- mosquitto_pub -t test -h 65.2.79.180 -p 1883 -m "hello" -d
+		
