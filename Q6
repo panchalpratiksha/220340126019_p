@@ -1,0 +1,9 @@
+create new Repositories
+220340126019
+then
+git init
+git add .
+git commit -m "pratiksha"
+git push origin master 
+
+PRN no :
